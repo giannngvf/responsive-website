@@ -1,0 +1,1214 @@
+/* Importing Google Fonts */
+@import url("https://fonts.googleapis.com/css2?family=Exo:wght@400;500;600&display=swap");
+
+/* Variable definitions for consistent styling */
+:root {
+  --header-height: 3.5rem;
+
+  --primary-color: hsl(219, 69%, 56%);
+  --primary-color-alt: hsl(219, 69%, 52%);
+  --title-color: hsl(219, 8%, 95%);
+  --text-color: hsl(219, 8%, 75%);
+  --text-color-light: hsl(219, 4%, 55%);
+  --white-color: #ffffff;
+  --body-color: hsl(219, 4%, 4%);
+  --container-color: hsl(219, 4%, 7%);
+
+  --body-font: "Exo", sans-serif;
+  --h1-font-size: 1.5rem;
+  --h2-font-size: 1.25rem;
+  --h3-font-size: 1rem;
+  --normal-font-size: 0.938rem;
+  --small-font-size: 0.813rem;
+  --smaller-font-size: 0.75rem;
+
+  --font-medium: 500;
+  --font-semi-bold: 600;
+
+  --z-tooltip: 10;
+  --z-fixed: 100;
+}
+
+/* Responsive font size adjustments */
+@media screen and (min-width: 968px) {
+  :root {
+    --h1-font-size: 2.25rem;
+    --h2-font-size: 1.75rem;
+    --h3-font-size: 1.5rem;
+    --normal-font-size: 1.25rem;
+    --small-font-size: 1rem;
+    --smaller-font-size: 0.9rem;
+  }
+}
+
+/* Global reset for box model */
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+/* Smooth scrolling for the entire page */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Body styles */
+body {
+  font-family: var(--body-font);
+  font-size: var(--normal-font-size);
+  background-color: var(--body-color);
+  color: var(--text-color);
+}
+
+/* Heading styles */
+h1,
+h2,
+h3 {
+  color: var(--title-color);
+  font-weight: var(--font-semi-bold);
+}
+
+/* Remove list styling */
+ul {
+  list-style: none;
+}
+
+/* Remove underlines from links */
+a {
+  text-decoration: none;
+}
+
+/* Responsive images */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Container for content with max-width and margins */
+.container {
+  max-width: 1024px;
+  margin-right: 1.5rem;
+  margin-left: 1.5rem;
+}
+
+/* Grid layout with consistent gap */
+.grid {
+  display: grid;
+  gap: 1.5rem;
+}
+
+/* Section styles with padding */
+.section {
+  padding: 4.5rem 0 2rem;
+}
+
+/* Section title styles */
+.section-title {
+  font-size: var(--h2-font-size);
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+
+/* Main content container with overflow hidden */
+.main {
+  overflow: hidden;
+}
+
+/* Styling for the button */
+.button {
+  display: inline-block;
+  background-color: var(--primary-color);
+  color: var(--white-color);
+  padding: 1rem 2rem;
+  border-radius: 0.25rem;
+  font-size: var(--normal-font-size);
+  transition: 0.3s;
+}
+
+/* Hover effect for the button */
+.button:hover {
+  background-color: var(--primary-color-alt);
+}
+
+/* Styling for the scrollbar */
+::-webkit-scrollbar {
+  width: 1rem;
+  background-color: hsl(219, 4%, 16%);
+  border-radius: 1rem;
+}
+
+/* Styling for the thumb of the scrollbar */
+::-webkit-scrollbar-thumb {
+  background-color: hsl(219, 4%, 24%);
+  border-radius: 1rem;
+}
+
+/* Hover effect for the thumb of the scrollbar */
+::-webkit-scrollbar-thumb:hover {
+  background-color: hsl(219, 4%, 32%);
+}
+
+/* HEADER */
+
+/* Header container with fixed position */
+.header {
+  width: 100%;
+  background-color: transparent;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: var(--z-fixed);
+}
+
+/* Navigation bar styles */
+.nav {
+  height: var(--header-height);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Styles for logo and toggle button */
+.nav-logo,
+.nav-toggle {
+  color: var(--title-color);
+  display: inline-flex;
+}
+
+/* Logo specific styles */
+.nav-logo {
+  align-items: center;
+  column-gap: 0.25rem;
+  font-weight: var(--font-medium);
+  transition: 0.3s;
+}
+
+/* Logo icon styles */
+.nav-logo i {
+  font-size: 1.25rem;
+}
+
+/* Hover effect for logo */
+.nav-logo:hover {
+  color: var(--primary-color);
+}
+
+/* Toggle button styles */
+.nav-toggle {
+  font-size: 1.25rem;
+  cursor: pointer;
+}
+
+/* Responsive styles for menu */
+@media screen and (max-width: 767px) {
+  .nav-menu {
+    position: fixed;
+    background-color: hsla(0, 0%, 100%, 0.1);
+    top: 0;
+    right: -100%;
+    width: 100%;
+    height: 100%;
+    backdrop-filter: blur(100px);
+    transition: 0.3s;
+  }
+}
+
+/* Navigation list styles */
+.nav-list {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  row-gap: 3rem;
+  padding-top: 9rem;
+}
+
+/* Navigation link styles */
+.nav-link {
+  text-transform: uppercase;
+  color: var(--title-color);
+  font-size: var(--h2-font-size);
+  font-weight: var(--font-medium);
+  transition: 0.3s;
+}
+
+/* Hover effect for navigation links */
+.nav-link:hover {
+  color: var(--primary-color);
+}
+
+/* Close button styles */
+.nav-close {
+  font-size: 1.5rem;
+  color: var(--white-color);
+  position: absolute;
+  top: 0.8rem;
+  right: 1.49rem;
+  cursor: pointer;
+}
+
+/* Show menu class to reveal the menu */
+.show-menu {
+  right: 0;
+}
+
+/* Styles for the scroll header */
+.scroll-header {
+  border-radius: 0 0 1rem 1rem;
+  background-color: var(--body-color);
+  box-shadow: 0 2px 4px hsla(0, 0%, 1%, 0.1);
+}
+
+/* HOME */
+
+/* Home section container with relative positioning */
+.home {
+  position: relative;
+  overflow: hidden;
+}
+
+/* Container for home content with padding and vertical gap */
+.home-container {
+  position: relative;
+  padding-top: 4rem;
+  row-gap: 3rem;
+}
+
+/* General styling for home data with center-aligned text */
+.home-data {
+  text-align: center;
+}
+
+/* Styling for the main title in the home section */
+.home-title {
+  font-size: var(--h1-font-size);
+  margin-bottom: 1rem;
+}
+
+/* Styling for the subtitle in the home section */
+.home-subtitle {
+  font-size: var(--h2-font-size);
+  margin-bottom: 0.25rem;
+}
+
+/* Styling for the description in the home section */
+.home-desc {
+  font-size: var(--h3-font-size);
+  font-weight: 400;
+  color: var(--text-color);
+  display: inline-flex;
+  align-items: center;
+  column-gap: 0.25rem;
+}
+
+/* Styling for the main image in the home section */
+.home-image {
+  width: 400px;
+  justify-self: center;
+}
+
+/* Styling for the gun section in the home */
+.home-gun {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  column-gap: 4rem;
+  margin-bottom: 2rem;
+}
+
+/* Styling for the name of the gun in the home section */
+.home-gun-name {
+  font-size: 0.625rem;
+  font-weight: 400;
+  color: var(--text-color-light);
+}
+
+/* Styling for the data related to the gun in the home section */
+.home-gun-data {
+  text-align: center;
+}
+
+/* Styling for the number associated with the gun in the home section */
+.home-gun-number {
+  font-size: var(--h2-font-size);
+  font-weight: var(--font-medium);
+  margin-bottom: 0.25rem;
+}
+
+/* Styling for the icon associated with the gun in the home section */
+.home-gun-icon {
+  background-color: var(--container-color);
+  border-radius: 50%;
+  padding: 0.376rem;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 0.875rem;
+}
+
+/* ABOUT */
+
+/* Container for about content with vertical gap */
+.about-container {
+  row-gap: 6rem;
+}
+
+/* Group container for positioning flexibility */
+.about-group {
+  position: relative;
+}
+
+/* Styling for the main image in the about section */
+.about-image {
+  width: 640px;
+  border-radius: 0.5rem;
+}
+
+/* Styling for the card in the about section */
+.about-card {
+  width: 200px;
+  position: absolute;
+  right: 0;
+  bottom: -2.5rem;
+  background-color: hsla(0, 0%, 100%, 0.1);
+  backdrop-filter: blur(16px);
+  padding: 1rem 0.75rem;
+  text-align: center;
+  border-radius: 1.25rem;
+}
+
+/* Styling for the title in the card of the about section */
+.about-card-title {
+  font-size: var(--h3-font-size);
+  margin-bottom: 0.5rem;
+}
+
+/* Styling for the description in the card of the about section */
+.about-card-desc {
+  font-size: var(--smaller-font-size);
+}
+
+/* Styling for the main title in the about section */
+.about-title {
+  text-align: initial;
+  margin-bottom: 2rem;
+}
+
+/* Styling for the description in the about section */
+.about-desc {
+  margin-bottom: 2rem;
+}
+
+/* SKINS */
+
+/* Container for skins content with padding and relative positioning */
+.skin-container {
+  padding-top: 1rem;
+  position: relative;
+}
+
+/* Navigation buttons for skin carousel */
+.skin-container #left,
+.skin-container #right {
+  z-index: 1;
+  top: 50%;
+  height: 50px;
+  width: 50px;
+  cursor: pointer;
+  font-size: 1.25rem;
+  position: absolute;
+  text-align: center;
+  line-height: 50px;
+  background: hsl(219, 4%, 16%);
+  border-radius: 50%;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.23);
+  transform: translateY(-50%);
+  transition: transform 0.1s linear;
+}
+
+/* Active state for navigation buttons */
+.skin-container #left:active,
+.skin-container #right:active {
+  transform: translateY(-50%) scale(0.85);
+}
+
+/* Styles for left and right navigation buttons */
+.skin-container #left {
+  left: -22px;
+}
+
+.skin-container #right {
+  right: -22px;
+}
+
+/* Carousel container for skins with horizontal scrolling */
+.skin-carousel {
+  display: flex;
+  overflow-x: auto;
+  gap: 16px;
+  border-radius: 8px;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+}
+
+/* Responsive styling for each skin card in the carousel */
+.skin-carousel > * {
+  flex: 0 0 calc((100% / 3) - 12px);
+}
+
+/* Hide scrollbar in the carousel */
+.skin-carousel::-webkit-scrollbar {
+  display: none;
+}
+
+/* Additional styles for carousel transitions and dragging */
+.skin-carousel.no-transition {
+  scroll-behavior: auto;
+}
+
+.skin-carousel.dragging {
+  scroll-snap-type: none;
+  scroll-behavior: auto;
+}
+
+/* Styles for a skin card in the carousel */
+.skin-carousel.dragging .skin-card {
+  cursor: grab;
+  user-select: none;
+}
+
+.skin-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  scroll-snap-align: start;
+  cursor: pointer;
+  position: relative;
+  background-color: var(--container-color);
+  padding: 2rem 1.5rem 1.5rem;
+  border-radius: 1rem;
+  margin-bottom: 3.5rem;
+}
+
+/* Styles for title, subtitle, and image in a skin card */
+.skin-title,
+.skin-subtitle,
+.skin-image {
+  position: relative;
+}
+
+.skin-title {
+  font-size: var(--h2-font-size);
+  margin-bottom: 0.25rem;
+}
+
+.skin-subtitle {
+  font-size: var(--normal-font-size);
+  color: var(--text-color);
+  font-weight: 400;
+}
+
+.skin-image {
+  width: 220px;
+  margin: 1.5rem;
+  transition: 0.3s;
+}
+
+/* Styles for skin data container */
+.skin-data {
+  gap: 0.5rem 1.25rem;
+  margin-bottom: 2rem;
+}
+
+/* Styles for skin data group */
+.skin-data-group {
+  display: flex;
+  flex-direction: column;
+  font-size: var(--smaller-font-size);
+  color: var(--white-color);
+}
+
+/* Styles for icons in skin data */
+.skin-data i {
+  font-size: 1rem;
+}
+
+/* Styles for skin price */
+.skin-price {
+  font-size: var(--h3-font-size);
+}
+
+/* Styles for the button in a skin card */
+.skin-button {
+  border: none;
+  outline: none;
+  padding: 0.75rem 1rem;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  border-radius: 1rem 0 1rem 0;
+  cursor: pointer;
+}
+
+/* Styles for icon in the button */
+.skin-button i {
+  font-size: 1rem;
+}
+
+/* Hover effect for the image in a skin card */
+.skin-card:hover .skin-image {
+  transform: translateY(-0.25rem);
+}
+
+/* Responsive styles for any screens */
+@media screen and (max-width: 900px) {
+  .skin-carousel > * {
+    flex: 0 0 calc((100% / 2) - 9px);
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .skin-carousel > * {
+    flex: 0 0 100%;
+  }
+}
+
+/* ATTACHMENT */
+
+/* Container for attachment content with hidden overflow and relative positioning */
+.attachment {
+  overflow: hidden;
+  position: relative;
+}
+
+/* Container for attachment content with padding and centered grid columns */
+.attachment-container {
+  padding-top: 2rem;
+  grid-template-columns: 400px;
+  justify-content: center;
+}
+
+/* Group container for attachment content with grid display and elevated z-index */
+.attachment-group {
+  display: grid;
+  position: relative;
+  z-index: 10;
+}
+
+/* Styling for the main attachment image with centered alignment */
+.attachment-image {
+  width: 500px;
+  justify-self: center;
+}
+
+/* Styling for each attachment card with absolute positioning and backdrop filter */
+.attachment-card {
+  width: 170px;
+  background-color: hsla(0, 0%, 100%, 0.1);
+  backdrop-filter: blur(16px);
+  border-radius: 1.25rem;
+  padding: 1rem 1rem;
+  text-align: center;
+  color: var(--title-color);
+  position: absolute;
+}
+
+/* Positioning for each specific attachment card */
+.attachment-card-1 {
+  top: -2rem;
+  left: -4rem;
+}
+
+.attachment-card-2 {
+  top: 2rem;
+  right: -7rem;
+}
+
+.attachment-card-3 {
+  left: 18rem;
+  bottom: 0rem;
+}
+
+.attachment-card-4 {
+  top: -4rem;
+  right: 1rem;
+}
+
+.attachment-card-5 {
+  left: 1rem;
+  bottom: 0rem;
+}
+
+/* Styling for the title and description in each attachment card */
+.attachment-card-title {
+  font-size: var(--h3-font-size);
+  margin-bottom: 0.25rem;
+}
+
+.attachment-card-description {
+  font-size: var(--smaller-font-size);
+}
+
+/* GUNS */
+
+/* Container for guns content with padding at the top */
+.guns-container {
+  padding-top: 1rem;
+}
+
+/* Filters for guns with flex display and alignment */
+.guns-filters {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  column-gap: 1rem;
+  margin-bottom: 3.5rem;
+}
+
+/* Styling for each filter item */
+.guns-item {
+  width: 60px;
+  height: 60px;
+  border: none;
+  outline: none;
+  padding: 0.75rem;
+  border-radius: 0.75rem;
+  background-color: var(--container-color);
+  color: var(--white-color);
+  font-size: var(--normal-font-size);
+  cursor: pointer;
+  transition: background-color 0.3s, opacity 0.3s;
+  opacity: 0.3;
+}
+
+/* Hover effect for filter items */
+.guns-item:hover {
+  background-color: var(--primary-color);
+  opacity: 1;
+}
+
+/* Styling for the content grid */
+.guns-content {
+  display: grid;
+  grid-template-columns: 228px;
+  gap: 2.5rem;
+  justify-content: center;
+}
+
+/* Styling for each gun card */
+.guns-card {
+  position: relative;
+  background-color: var(--container-color);
+  padding: 2rem 1.5rem 1.5rem;
+  border-radius: 1rem;
+}
+
+/* Styling for the title, subtitle, and image in a gun card */
+.guns-title {
+  font-size: var(--h2-font-size);
+  margin-bottom: 0.25rem;
+}
+
+.guns-subtitle {
+  font-size: var(--normal-font-size);
+  color: var(--text-color);
+  font-weight: 400;
+}
+
+.guns-image {
+  width: 180px;
+  margin: 1.5rem 0;
+  transition: transform 0.3s;
+}
+
+/* Styling for the price, button, and icon in a gun card */
+.guns-price {
+  font-size: var(--normal-font-size);
+  color: var(--white-color);
+  font-weight: 500;
+}
+
+.guns-button {
+  border: none;
+  outline: none;
+  padding: 0.75rem 1rem;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  border-radius: 1rem 0 1rem 0;
+  cursor: pointer;
+}
+
+.guns-button i {
+  font-size: 1rem;
+}
+
+/* Hover effect for the image in a gun card */
+.guns-card:hover .guns-image {
+  transform: translateX(-0.25rem);
+}
+
+/* Active link styling for the guns content */
+.guns-content .guns-card.hide {
+  display: none;
+}
+
+.guns-content .guns-card.show {
+  animation: animate 0.4s ease;
+}
+
+@keyframes animate {
+  0% {
+    transform: scale(0.5);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* Styling for the active guns filter item */
+.active-guns {
+  background-color: var(--primary-color);
+  opacity: 1;
+}
+
+/* OFFER */
+
+/* Container for the offer content with relative positioning */
+.offer {
+  position: relative;
+}
+
+/* Container for the offer content with grid rows */
+.offer-container {
+  grid-template-rows: max-content 140px;
+}
+
+/* Background image for the offer with absolute positioning */
+.offer-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* Container for offer data and image with relative positioning */
+.offer-data,
+.offer-image {
+  position: relative;
+}
+
+/* Styling for the offer data container */
+.offer-data {
+  margin-top: -40px;
+  background-color: hsla(0, 0%, 0%, 0.4);
+  backdrop-filter: blur(2px);
+  padding: 1rem 0.75rem;
+  text-align: center;
+  border-radius: 1.25rem;
+}
+
+/* Styling for the title in the offer section */
+.offer-title {
+  margin-bottom: 2rem;
+}
+
+/* Styling for the description in the offer section */
+.offer-desc {
+  color: var(--white-color);
+  margin-bottom: 3rem;
+}
+
+/* Styling for the offer image with absolute positioning */
+.offer-image {
+  position: absolute;
+  max-width: initial;
+  width: 400px;
+  bottom: 0;
+  right: -5.5rem;
+}
+
+/* FOOTER */
+
+/* Container for the footer content with relative positioning and overflow handling */
+.footer {
+  position: relative;
+  overflow: hidden;
+}
+
+/* Container for the footer content with vertical gap and relative positioning */
+.footer-container {
+  row-gap: 2.5rem;
+  position: relative;
+}
+
+/* Styling for the footer logo with inline flex display */
+.footer-logo {
+  display: inline-flex;
+  align-items: center;
+  column-gap: 0.25rem;
+  color: var(--title-color);
+  font-size: var(--h2-font-size);
+  font-weight: var(--font-semi-bold);
+  margin-bottom: 1.25rem;
+  transition: 0.3s;
+}
+
+/* Styling for the logo icon in the footer */
+.footer-logo i {
+  font-size: 1.5rem;
+  font-weight: 500;
+}
+
+/* Hover effect for the footer logo */
+.footer-logo:hover {
+  color: var(--primary-color);
+}
+
+/* Styling for the footer title */
+.footer-title {
+  font-size: var(--h3-font-size);
+  margin-bottom: 1.25rem;
+}
+
+/* Styling for the links in the footer */
+.footer-links {
+  display: flex;
+  flex-direction: column;
+  row-gap: 0.5rem;
+}
+
+/* Styling for regular links in the footer */
+.footer-link,
+.footer-social-link {
+  color: var(--text-color);
+  transition: 0.3s;
+}
+
+/* Hover effect for regular links in the footer */
+.footer-link:hover,
+.footer-social-link:hover {
+  color: var(--title-color);
+}
+
+/* Styling for the social media links in the footer */
+.footer-social {
+  display: flex;
+  column-gap: 1.5rem;
+}
+
+/* Styling for social media link icons in the footer */
+.footer-social-link {
+  font-size: 1.25rem;
+}
+
+/* Styling for the footer copyright notice */
+.footer-copy {
+  display: block;
+  margin-top: 4.5rem;
+  text-align: center;
+  font-size: var(--smaller-font-size);
+  color: var(--text-color-light);
+}
+
+/* Media Query for screens up to 320px width */
+@media screen and (max-width: 320px) {
+  .container {
+    margin-left: 1rem;
+    margin-right: 1rem;
+  }
+
+  .home-gun {
+    column-gap: 2rem;
+  }
+
+  /* Adjustments for attachment section */
+  .about-card {
+    width: 180px;
+    bottom: -4rem;
+  }
+
+  .attachment-container {
+    grid-template-columns: max-content -1px;
+  }
+
+  .attachment-image {
+    width: 250px;
+  }
+
+  .attachment-card {
+    width: 90px;
+  }
+
+  .attachment-card-title {
+    font-size: x-small;
+  }
+
+  .attachment-card-description {
+    font-size: xx-small;
+  }
+
+  .attachment-card-1 {
+    top: -4rem;
+    left: 4.2rem;
+  }
+
+  .attachment-card-2 {
+    top: 5rem;
+    right: 4rem;
+  }
+
+  .attachment-card-3 {
+    left: 9.8rem;
+    bottom: -2rem;
+  }
+
+  .attachment-card-4 {
+    top: -4rem;
+    right: 4rem;
+  }
+
+  .attachment-card-5 {
+    left: 4rem;
+    bottom: 0.1rem;
+  }
+
+  .offer-image {
+    width: 350px;
+  }
+}
+
+/* Media Query for screens from 576px width */
+@media screen and (min-width: 576px) {
+  /* Adjustments for the about section */
+  .about-group {
+    width: 350px;
+    justify-self: center;
+  }
+
+  /* Adjustments for the guns section */
+  .guns-content {
+    grid-template-columns: repeat(2, 228px);
+  }
+
+  /* Adjustments for the offer section */
+  .offer-container {
+    grid-template-rows: initial;
+    grid-template-columns: 0.7fr;
+  }
+}
+
+/* Media Query for screens from 767px width */
+@media screen and (min-width: 767px) {
+  /* Adjustments for various sections */
+  .section {
+    padding: 7rem 0 2rem;
+  }
+
+  .nav {
+    height: calc(var(--header-height) + 1.5rem);
+  }
+
+  .nav-toggle,
+  .nav-close {
+    display: none;
+  }
+
+  .nav-list {
+    flex-direction: row;
+    column-gap: 3rem;
+    padding-top: 0;
+  }
+
+  .nav-link {
+    font-size: var(--normal-font-size);
+    text-transform: initial;
+  }
+
+  /* Adjustments for the about section */
+  .about-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  /* Adjustments for the attachment section */
+  .attachment-container {
+    grid-template-columns: 700px;
+  }
+
+  .attachment-card-1 {
+    top: -2rem;
+    left: 1rem;
+  }
+
+  .attachment-card-2 {
+    top: 4rem;
+    right: -4rem;
+  }
+
+  .attachment-card-3 {
+    left: 30rem;
+    bottom: 1rem;
+  }
+
+  .attachment-card-4 {
+    top: -4rem;
+    right: 10rem;
+  }
+
+  .attachment-card-5 {
+    left: 10rem;
+    bottom: 1rem;
+  }
+
+  /* Adjustments for the footer section */
+  .footer-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Media Query for screens from 1040px width */
+@media screen and (min-width: 1040px) {
+  .container {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* Adjustments for the home section */
+  .home-container {
+    padding-top: 2rem;
+  }
+
+  .home-image {
+    width: 500px;
+  }
+
+  .home-gun {
+    column-gap: 7rem;
+  }
+
+  .home-gun-icon {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+
+  /* Adjustments for the about section */
+  .about-container {
+    column-gap: 2rem;
+    align-items: center;
+  }
+
+  .about-group,
+  .about-image {
+    width: 500px;
+  }
+
+  .about-card {
+    width: 300px;
+    padding: 1rem 1.5rem;
+  }
+
+  .about-desc {
+    padding-right: 4rem;
+    margin-bottom: 3rem;
+  }
+
+  /* Adjustments for the skins section */
+  .skin-container {
+    width: 875px;
+    padding-top: 3rem;
+  }
+
+  .skin-card {
+    width: 258pc;
+    border-radius: 1.25rem;
+    margin-bottom: 5rem;
+  }
+
+  .skin-image {
+    width: 180px;
+  }
+
+  /* Adjustments for the attachment section */
+  .attachment-container {
+    padding: 2rem 0 3rem;
+  }
+
+  .attachment-image {
+    width: 650px;
+  }
+
+  .attachment-card {
+    width: 200px;
+    padding: 0.8rem 0.8rem;
+  }
+
+  .attachment-card-1 {
+    top: -2rem;
+    left: -4rem;
+  }
+
+  .attachment-card-2 {
+    top: 4rem;
+    right: -12rem;
+  }
+
+  .attachment-card-3 {
+    left: 37rem;
+    bottom: 1rem;
+  }
+
+  .attachment-card-4 {
+    top: -3rem;
+    right: 10rem;
+  }
+
+  .attachment-card-5 {
+    left: 8rem;
+    bottom: 1rem;
+  }
+
+  /* Adjustments for the guns section */
+  .guns-container {
+    padding-bottom: 2.5rem;
+  }
+
+  .guns-filters {
+    column-gap: 2rem;
+    margin-bottom: 4.5rem;
+  }
+
+  .guns-item {
+    width: 60px;
+    height: 60px;
+  }
+
+  .guns-item img {
+    width: 2rem;
+  }
+
+  .guns-content {
+    grid-template-columns: repeat(3, 250px);
+    gap: 4rem;
+  }
+
+  /* Adjustments for the offer section */
+  .offer-data {
+    width: 600px;
+    justify-self: center;
+  }
+
+  .offer-image {
+    width: 600px;
+    right: 4rem;
+  }
+
+  /* Adjustments for the footer section */
+  .footer-container {
+    grid-template-columns: repeat(4, 1fr);
+    justify-content: space-between;
+  }
+}
